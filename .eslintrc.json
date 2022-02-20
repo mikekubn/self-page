@@ -10,7 +10,8 @@
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "plugin:@next/next/recommended",
-    "plugin:tailwindcss/recommended"
+    "plugin:tailwindcss/recommended",
+    "plugin:tailwind/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -34,6 +35,8 @@
     "tailwindcss/no-arbitrary-value": "off",
     "tailwindcss/no-custom-classname": "warn",
     "tailwindcss/no-contradicting-classname": "error",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/naming-convention": [
       "error",
       {

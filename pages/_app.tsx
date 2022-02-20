@@ -1,9 +1,13 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
+import MainLayout from 'layouts/MainLayout';
 
 function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
   return (
-    <Component {...pageProps} />
+    <>
+      <MainLayout />
+      <Component {...pageProps} />
+    </>
   );
 }
 
