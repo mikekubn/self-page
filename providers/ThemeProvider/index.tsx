@@ -1,37 +1,47 @@
+import { useMatchMedia } from 'components/hooks';
 import React from 'react';
 
-const getInitialTheme = () => {
-  if (typeof window !== 'undefined' && window.localStorage) {
-    const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
-    if (userMedia.matches) {
-      return 'dark';
-    }
-  }
-
-  return 'light';
+type ThemeProviderProps = { children: React.ReactNode };
+type ThemeState = {
+  state: boolean,
+  toggle: (val: boolean) => void,
 };
 
-const ThemeContex = React.createContext(undefined);
+const ThemeContex = React.createContext<ThemeState | undefined>({ state: false, toggle: () => {} });
 
-const ThemeProvider = ({ children }: { children: React.ReactNode }): null => (
-  // const [theme, setTheme] = React.useState(false);
+const ThemeProvider = ({ children }: ThemeProviderProps) => {
+  const { dakrMode } = useMatchMedia();
+  const [theme, setTheme] = React.useState(false);
 
-  // console.log('theme', theme);
+  React.useEffect(() => {
+    if (dakrMode) {
+      setTheme(true);
+    }
+  }, [dakrMode]);
 
-  // return (
-  //   <ThemeContex.Provider value={theme}>{children}</ThemeContex.Provider>
+  React.useEffect(() => {
+    if (theme) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
 
-  // );
-  null
-);
+  return (
+    <ThemeContex.Provider value={{ state: theme, toggle: (val) => setTheme(val) }}>
+      {children}
+    </ThemeContex.Provider>
+  );
+};
 
-const useTheme = () => {
+const useThemeContex = () => {
   const context = React.useContext(ThemeContex);
 
   if (context === undefined) {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
+
   return context;
 };
 
-export { ThemeContex, ThemeProvider, useTheme };
+export { ThemeProvider, useThemeContex };
