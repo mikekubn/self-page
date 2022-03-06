@@ -10,7 +10,8 @@
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "plugin:@next/next/recommended",
-    "plugin:tailwindcss/recommended"
+    "plugin:tailwindcss/recommended",
+    "plugin:tailwind/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -27,13 +28,17 @@
     "tailwindcss"
   ],
   "rules": {
-    "tailwindcss/classnames-order": "warn",
+    "jsx-a11y/label-has-for":"off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "tailwindcss/classnames-order": "off",
     "tailwindcss/enforces-negative-arbitrary-values": "warn",
     "tailwindcss/enforces-shorthand": "warn",
     "tailwindcss/migration-from-tailwind-2": "warn",
     "tailwindcss/no-arbitrary-value": "off",
     "tailwindcss/no-custom-classname": "warn",
     "tailwindcss/no-contradicting-classname": "error",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/naming-convention": [
       "error",
       {
@@ -63,6 +68,8 @@
         "ts-ignore": true
       }
     ],
+    "max-len": "off",
+    "import/prefer-default-export": 0,
     "react/jsx-props-no-spreading": 0,
     "@typescript-eslint/ban-ts-ignore": 0,
     "@typescript-eslint/no-unused-expressions": 0,

@@ -1,0 +1,9 @@
+import React from 'react';
+
+const MainLayout = ({ children }: { children: React.ReactNode }): React.ReactElement => (
+  <div className="flex flex-col flex-1 pt-[80px]">
+    {children}
+  </div>
+);
+
+export default MainLayout;

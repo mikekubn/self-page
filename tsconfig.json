@@ -17,6 +17,7 @@
     "baseUrl": "./",
   },
   "include": [
+    "tailwind.config.js",
     "style/**/*.ts",
     "next-env.d.ts",
     "**/*.ts",
