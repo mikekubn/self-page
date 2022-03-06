@@ -7,11 +7,13 @@ type ThemeState = {
   toggle: (val: boolean) => void,
 };
 
-const ThemeContex = React.createContext<ThemeState | undefined>({ state: false, toggle: () => {} });
+const DefaultValue = { state: false, toggle: () => {} };
 
-const ThemeProvider = ({ children }: ThemeProviderProps) => {
+const ThemeContex = React.createContext<ThemeState | undefined>(DefaultValue);
+
+const ThemeProvider = ({ children }: ThemeProviderProps): React.ReactElement => {
   const { dakrMode } = useMatchMedia();
-  const [theme, setTheme] = React.useState(false);
+  const [theme, setTheme] = React.useState(DefaultValue.state);
 
   React.useEffect(() => {
     if (dakrMode) {
