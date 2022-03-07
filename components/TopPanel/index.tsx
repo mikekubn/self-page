@@ -8,7 +8,7 @@ const TopPanel = (): React.ReactElement => {
   const { state, toggle } = useThemeContex();
 
   return (
-    <header className="fixed top-0 left-0 flex flex-row items-center px-7 bg-pink h-14 w-[100%]">
+    <header className="fixed top-0 left-0 z-50 flex flex-row items-center px-7 bg-pink h-14 w-[100%]">
       <Navigation />
       <div className="flex ml-auto">
         <RenderThemeImage val={state} />
