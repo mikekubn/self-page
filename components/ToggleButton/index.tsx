@@ -6,7 +6,7 @@ interface IToggleButton {
 }
 
 const ToggleButton = ({ value, callback }: IToggleButton): React.ReactElement => (
-  <label htmlFor="toggle-button" className="flex items-center p-2 ml-auto cursor-pointer">
+  <label htmlFor="toggle-button" className="flex items-center cursor-pointer">
     <input
       onChange={() => callback(!value)}
       checked={value}
@@ -14,7 +14,9 @@ const ToggleButton = ({ value, callback }: IToggleButton): React.ReactElement =>
       id="toggle-button"
       className="appearance-none sr-only peer"
     />
-    <span className="flex h-8 p-1 ml-4 rounded-full w-14 shrink-0 bg-gray duration-300 ease-in-out peer-checked:bg-green after:w-6 after:h-6 after:bg-blue after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6" />
+    <span
+      className="flex p-1 rounded-full h-7 w-14 shrink-0 bg-gray duration-300 ease-in-out peer-checked:bg-green after:w-5 after:h-5 after:bg-blue after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6"
+    />
   </label>
 );
 

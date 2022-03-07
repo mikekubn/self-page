@@ -14,6 +14,7 @@ module.exports = {
       xl: '1440px',
     },
     colors: {
+      transparent: 'transparent',
       slate50: '#f8fafc',
       slate900: '#0f172a',
       gray900: '#111827',
@@ -32,6 +33,9 @@ module.exports = {
       serif: ['Merriweather', 'serif'],
     },
     extend: {
+      textUnderlineOffset: {
+        3: '3px',
+      },
       spacing: {
         128: '32rem',
         144: '36rem',
