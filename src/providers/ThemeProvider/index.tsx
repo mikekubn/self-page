@@ -1,4 +1,4 @@
-import { useMatchMedia } from 'components/hooks';
+import { useMatchMedia } from 'src/hooks';
 import React from 'react';
 
 type ThemeProviderProps = { children: React.ReactNode };

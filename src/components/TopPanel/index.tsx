@@ -1,8 +1,8 @@
 import React from 'react';
-import ToggleButton from 'components/ToggleButton';
-import { useThemeContex } from 'providers/ThemeProvider';
+import { useThemeContex } from 'src/providers/ThemeProvider';
 import Image from 'next/image';
 import Link from 'next/link';
+import ToggleButton from '@/components/ToggleButton';
 
 const TopPanel = (): React.ReactElement => {
   const { state, toggle } = useThemeContex();

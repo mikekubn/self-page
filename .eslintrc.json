@@ -86,6 +86,17 @@
         "imports": "always-multiline",
         "objects": "always-multiline"
       }
+    ],
+    "import/extensions": [
+      "off",
+      "ignorePackages",
+      {
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
     ]
   }
 }
