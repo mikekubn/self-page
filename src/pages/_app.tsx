@@ -7,7 +7,7 @@ import TopPanel from 'src/components/TopPanel';
 import { ThemeProvider } from 'src/providers/ThemeProvider';
 
 const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => (
-  <div className="flex flex-col flex-1 h-[100vh]">
+  <>
     <ThemeProvider>
       <TopPanel />
       <MainLayout>
@@ -15,6 +15,6 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => (
         <Footer />
       </MainLayout>
     </ThemeProvider>
-  </div>
+  </>
 );
 export default MyApp;
