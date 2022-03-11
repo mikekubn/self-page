@@ -19,7 +19,6 @@ const RightSideHomePage = () => (
       {
           jobs_lan_en.map((language) => (
             <Link key={language.id} href="/task/[taskId]" as={`/task/${language.id}`} passHref>
-              { /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
               <a>
                 <Card>
                   <div className="w-[60px] h-[60px] bg-yellow" />

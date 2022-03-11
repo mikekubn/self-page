@@ -2,12 +2,10 @@ import React from 'react';
 
 interface ICard {
   children: React.ReactNode,
-  // eslint-disable-next-line react/require-default-props
   handleClick?: () => void,
 }
 
 const Card = ({ children, handleClick }: ICard): React.ReactElement => (
-  // eslint-disable-next-line jsx-a11y/click-events-have-key-events
   <section
     onClick={handleClick}
     className="flex h-48 mb-10 border border-solid shadow-lg border-sky500/5 rounded-2xl shadow-sky500/5 hover:bg-sky500/5"

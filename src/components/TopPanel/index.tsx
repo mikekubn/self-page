@@ -1,7 +1,6 @@
 import React from 'react';
 import { useThemeContex } from 'src/providers/ThemeProvider';
 import Image from 'next/image';
-import Link from 'next/link';
 import ToggleButton from '@/components/ToggleButton';
 
 const TopPanel = (): React.ReactElement => {
@@ -19,25 +18,6 @@ const TopPanel = (): React.ReactElement => {
 };
 
 export default TopPanel;
-
-const navigationConfig = [
-  { name: 'Michael Kubín', url: '/#michael-kubin' },
-  { name: 'Technology', url: '/#technology' },
-  { name: 'Contact', url: '/#contact' },
-];
-
-const Navigation = () => (
-  <div>
-    {
-      navigationConfig.map((nav) => (
-        <Link href={nav.url} key={nav.url} scroll={false} passHref>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="px-3 text-lg no-underline first:pl-0 hover:underline underline-offset-8">{nav.name}</a>
-        </Link>
-      ))
-    }
-  </div>
-);
 
 const PlaceholderLanguage = () => (
   <div className="flex flex-row items-center pl-4 cursor-pointer">
