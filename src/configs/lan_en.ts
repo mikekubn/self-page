@@ -1,4 +1,4 @@
-export interface IJob {
+interface IJob {
   id: string,
   companyName: string,
   date: string,
@@ -7,7 +7,7 @@ export interface IJob {
   description: string,
 }
 
-export const jobs_lan_en: IJob[] = [
+const jobs_lan_en: IJob[] = [
   {
     id: '1', companyName: 'Company Name', date: 'from: 23.1 to: 15.2', where: 'where: Czech', position: 'Job description', description: 'n publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such',
   },
@@ -21,3 +21,6 @@ export const jobs_lan_en: IJob[] = [
     id: '4', companyName: 'Company Name', date: 'from: 23.1 to: 15.2', where: 'where: Czech', position: 'Job description', description: 'n publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such',
   },
 ];
+
+export { jobs_lan_en };
+export type { IJob };

@@ -19,7 +19,7 @@ const RightSideHomePage = () => (
     <div className="flex flex-col w-4/5 h-full mx-auto overflow-auto">
       {
         jobs_lan_en.map((job) => (
-          <Link key={job.id} href="/task/[taskId]" as={`/task/${job.id}`} passHref>
+          <Link key={job.id} href="/experience/[experienceId]" as={`/experience/${job.id}`} passHref>
             <a>
               <Card>
                 <JobContent data={job} />
