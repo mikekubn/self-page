@@ -31,7 +31,8 @@ const Navigation = () => (
     {
       navigationConfig.map((nav) => (
         <Link href={nav.url} key={nav.url} scroll={false} passHref>
-          <a href={nav.url} className="px-3 text-lg no-underline first:pl-0 hover:underline underline-offset-8">{nav.name}</a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a className="px-3 text-lg no-underline first:pl-0 hover:underline underline-offset-8">{nav.name}</a>
         </Link>
       ))
     }
