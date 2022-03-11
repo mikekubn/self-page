@@ -13,7 +13,7 @@ Modal.setAppElement('#__next');
 const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
   const router = useRouter();
 
-  const findJobDescription: IJob | undefined = jobs_lan_en.find((job) => job.id === experienceId);
+  const description: IJob | undefined = jobs_lan_en.find((job) => job.id === experienceId);
 
   React.useEffect(() => {
     router.prefetch('/');
@@ -27,13 +27,17 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
         contentLabel="JobDescriptionPage modal"
         style={{
           overlay: {
-            backgroundColor: 'red',
+            backgroundColor: 'transparent',
+          },
+          content: {
+            width: '500px',
+            height: '320px',
           },
         }}
       >
         {
-          findJobDescription
-            ? <JobContent data={findJobDescription} isModal />
+          description
+            ? <JobContent data={description} isModal />
             : null
         }
       </Modal>

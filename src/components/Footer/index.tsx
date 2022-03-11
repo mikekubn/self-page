@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer className="h-10 w-[100%] bg-pink" />
+  <footer className="bottom-0 left-0 w-screen h-10 bg-pink" />
 );
 
 export default Footer;
