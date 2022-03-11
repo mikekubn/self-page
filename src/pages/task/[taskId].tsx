@@ -1,7 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Modal from 'react-modal';
-import { jobs_lan_en } from 'src/configs/lan_en';
+import { IJob, jobs_lan_en } from 'src/configs/lan_en';
+import JobContent from '@/components/JobContent';
 
 interface ITaskId {
   taskId: string,
@@ -12,6 +13,8 @@ Modal.setAppElement('#__next');
 const JobDescriptionPage = ({ taskId }: ITaskId): React.ReactElement => {
   const router = useRouter();
 
+  const findJobDescription: IJob | undefined = jobs_lan_en.find((job) => job.id === taskId);
+
   React.useEffect(() => {
     router.prefetch('/');
   }, [router]);
@@ -21,13 +24,13 @@ const JobDescriptionPage = ({ taskId }: ITaskId): React.ReactElement => {
       <Modal
         isOpen // The modal should always be shown on page load, it is the 'page'
         onRequestClose={() => router.push('/')}
-        contentLabel="Post modal"
+        contentLabel="Task modal"
       >
-        <div>
-          Modal opened
-          {' '}
-          {taskId}
-        </div>
+        {
+          findJobDescription
+            ? <JobContent data={findJobDescription} />
+            : null
+        }
       </Modal>
     </>
   );
@@ -41,8 +44,8 @@ export function getStaticProps({ params: { taskId } }: { params: ITaskId }) {
 
 export function getStaticPaths() {
   return {
-    paths: jobs_lan_en.map((lg) => ({
-      params: { taskId: lg.id },
+    paths: jobs_lan_en.map((job) => ({
+      params: { taskId: job.id },
     })),
     fallback: false,
   };

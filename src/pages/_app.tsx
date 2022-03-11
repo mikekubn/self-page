@@ -12,8 +12,8 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => (
       <TopPanel />
       <MainLayout>
         <Component {...pageProps} />
-        <Footer />
       </MainLayout>
+      <Footer />
     </ThemeProvider>
   </>
 );
