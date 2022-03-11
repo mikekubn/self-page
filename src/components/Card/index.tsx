@@ -2,7 +2,8 @@ import React from 'react';
 
 interface ICard {
   children: React.ReactNode,
-  handleClick: () => void,
+  // eslint-disable-next-line react/require-default-props
+  handleClick?: () => void,
 }
 
 const Card = ({ children, handleClick }: ICard): React.ReactElement => (
