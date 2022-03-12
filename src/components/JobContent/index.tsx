@@ -6,8 +6,6 @@ const JobContent = ({ data, isModal }: { data: IJob, isModal?: boolean }): React
     companyName, date, where, position, description,
   } = data;
 
-  console.log('isModal', isModal);
-
   return (
     <>
       <div className="w-[60px] h-[60px] bg-yellow" />

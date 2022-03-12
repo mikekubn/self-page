@@ -1,13 +1,13 @@
 import React from 'react';
-import { useThemeContex } from 'src/providers/ThemeProvider';
+import { useTheme } from 'src/providers/ThemeProvider';
 import Image from 'next/image';
 import ToggleButton from '@/components/ToggleButton';
 
 const TopPanel = (): React.ReactElement => {
-  const { state, toggle } = useThemeContex();
+  const { state, toggle } = useTheme();
 
   return (
-    <header className="fixed top-0 left-0 z-50 flex flex-row items-center px-7 h-14 w-[100%]">
+    <header className="fixed top-0 left-0 flex flex-row items-center px-7 h-14 w-[100%]">
       <div className="flex ml-auto">
         <RenderThemeImage val={state} />
         <ToggleButton value={state} callback={(val) => toggle(val)} />

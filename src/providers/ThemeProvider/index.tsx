@@ -36,7 +36,7 @@ const ThemeProvider = ({ children }: ThemeProviderProps): React.ReactElement => 
   );
 };
 
-const useThemeContex = () => {
+const useTheme = () => {
   const context = React.useContext(ThemeContex);
 
   if (context === undefined) {
@@ -46,4 +46,4 @@ const useThemeContex = () => {
   return context;
 };
 
-export { ThemeProvider, useThemeContex };
+export { ThemeProvider, useTheme };
