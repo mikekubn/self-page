@@ -16,7 +16,7 @@ const LeftSideHomePage = () => (
 const RightSideHomePage = () => (
   <div className="flex flex-col justify-start flex-1 pt-24">
     <h1 className="mx-auto mb-10 text-3xl font-AsapItal">Work experience</h1>
-    <div className="flex flex-col w-4/5 h-full mx-auto overflow-auto">
+    <div className="flex flex-col h-full mx-auto overflow-auto">
       {
         jobs_lan_en.map((job) => (
           <Link key={job.id} href="/experience/[experienceId]" as={`/experience/${job.id}`} passHref>

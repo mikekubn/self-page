@@ -1,7 +1,7 @@
 import React from 'react';
 import { IJob } from 'src/configs/lan_en';
 
-const JobContent = ({ data, isModal }: { data: IJob, isModal?: boolean }): React.ReactElement => {
+const JobContent = ({ data }: { data: IJob }): React.ReactElement => {
   const {
     companyName, date, where, position, description,
   } = data;

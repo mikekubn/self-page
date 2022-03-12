@@ -15,7 +15,7 @@ const ToggleButton = ({ value, callback }: IToggleButton): React.ReactElement =>
       className="appearance-none sr-only peer"
     />
     <span
-      className="flex p-1 rounded-full h-7 w-14 shrink-0 bg-gray duration-300 ease-in-out peer-checked:bg-green after:w-5 after:h-5 after:bg-blue after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6"
+      className="flex w-12 h-6 p-1 bg-transparent border rounded-full shrink-0 duration-300 ease-in-out peer-checked:bg-transparent after:w-[15px] after:h-[15px] after:bg-sky500/50 after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6"
     />
   </label>
 );
