@@ -20,6 +20,14 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
   const { state: darkMode } = useTheme();
   const description: IJob | undefined = jobs_lan_en.find((job) => job.id === experienceId);
 
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(`${window.location.href}`);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   React.useEffect(() => {
     router.prefetch('/');
   }, [router]);
@@ -78,7 +86,13 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
                     </div>
                   </div>
                   <div className="flex justify-end">
-                    <Image src="/img/fork.png" width={48} height={48} alt="Work description fork" />
+                    <div className="pr-5 cursor-pointer">
+                      <Image src="/img/link.png" width={28} height={28} alt="Work description fork" onClick={() => copy()} />
+                    </div>
+                    <div className="pr-2">
+                      <Image src="/img/fork.png" width={28} height={28} alt="Work description fork" />
+                    </div>
+                    <p>{description.companyName}</p>
                   </div>
                 </div>
               </>
