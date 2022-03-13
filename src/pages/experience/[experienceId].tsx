@@ -86,11 +86,12 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
                     </div>
                   </div>
                   <div className="flex justify-end">
+                    {/* TODO add notificaiton */}
                     <div className="pr-5 cursor-pointer">
-                      <Image src="/img/link.png" width={28} height={28} alt="Work description fork" onClick={() => copy()} />
+                      <Image src="/img/link.png" width={28} height={28} alt="Copy link" onClick={() => copy()} />
                     </div>
                     <div className="pr-2">
-                      <Image src="/img/fork.png" width={28} height={28} alt="Work description fork" />
+                      <Image src="/img/fork.png" width={28} height={28} alt="Moved from home page" />
                     </div>
                     <p>{description.companyName}</p>
                   </div>
