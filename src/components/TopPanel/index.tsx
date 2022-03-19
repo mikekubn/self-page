@@ -7,8 +7,7 @@ const TopPanel = (): React.ReactElement => {
   const { state, toggle } = useTheme();
 
   return (
-    // TODO if scoll move header to hide mode
-    <header className="fixed top-0 left-0 z-50 flex flex-row items-center px-7 h-14 w-[100%]">
+    <header className="fixed top-0 left-0 z-50 flex flex-row items-center w-full px-7 h-14 bg-transparent/5">
       <div className="flex ml-auto">
         <RenderThemeImage val={state} />
         <ToggleButton value={state} callback={(val) => toggle(val)} />
