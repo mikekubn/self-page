@@ -24,13 +24,18 @@ module.exports = {
       orange: '#ff7849',
       green: '#13ce66',
       yellow: '#ffc82c',
+      white: '#ffffff',
       'gray-dark': '#273444',
       gray: '#8492a6',
-      'gray-light': '#d3dce6',
+      gray100: '#f3f4f6',
+      sky300: '#7dd3fc',
+      sky500: '#0ea5e9',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
+      Asap: ['Asap', 'sans-serif'],
+      AsapItal: ['Asap', 'sans-serif'],
     },
     extend: {
       textUnderlineOffset: {
