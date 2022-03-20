@@ -20,7 +20,7 @@ const useNotification = (): TResult<INotificaiton> => {
 
   React.useEffect(() => {
     if (notification?.visible) {
-      setTimeout(() => setNotificaiton({ ...notification, visible: false }), 1000);
+      setTimeout(() => setNotificaiton({ ...notification, visible: false }), 1500);
     }
   }, [notification]);
 
