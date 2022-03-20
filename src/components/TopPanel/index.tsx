@@ -7,7 +7,7 @@ const TopPanel = (): React.ReactElement => {
   const { state, toggle } = useTheme();
 
   return (
-    <header className="fixed top-0 left-0 z-50 flex flex-row items-center w-full px-7 h-14 bg-transparent/5">
+    <header className="fixed top-0 left-0 z-50 flex flex-row items-center w-full px-7 h-14">
       <div className="flex ml-auto">
         <RenderThemeImage val={state} />
         <ToggleButton value={state} callback={(val) => toggle(val)} />
