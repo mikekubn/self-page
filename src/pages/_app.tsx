@@ -5,9 +5,10 @@ import MainLayout from 'src/layouts/MainLayout';
 import Footer from 'src/components/Footer';
 import TopPanel from 'src/components/TopPanel';
 import { ThemeProvider } from 'src/providers/ThemeProvider';
+import { AnimatePresence } from 'framer-motion';
 
 const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => (
-  <>
+  <AnimatePresence exitBeforeEnter>
     <ThemeProvider>
       <TopPanel />
       <MainLayout>
@@ -15,6 +16,7 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => (
       </MainLayout>
       <Footer />
     </ThemeProvider>
-  </>
+  </AnimatePresence>
 );
+
 export default MyApp;
