@@ -48,6 +48,22 @@ module.exports = {
       borderRadius: {
         '4xl': '2rem',
       },
+      animation: {
+        move: 'move 1.5s linear infinite',
+      },
+      keyframes: {
+        move: {
+          '0%': {
+            opacity: '0.5',
+          },
+          '30%, 60%': {
+            opacity: '1',
+          },
+          '90%, 100%': {
+            opacity: '0.3',
+          },
+        },
+      },
     },
   },
   plugins: [],
