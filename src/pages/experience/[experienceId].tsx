@@ -74,7 +74,7 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
           description
             ? (
               <>
-                <div className="flex flex-col flex-1 pb-20 pl-24">
+                <div className="flex flex-col flex-1 pt-24 pb-20 pl-24">
                   <Name />
                   <Link href="/" passHref>
                     <a className="flex items-center justify-center h-12 mr-10 border rounded-full cursor-pointer w-52 text-sky500 hover:bg-sky500/5">
@@ -82,7 +82,7 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
                     </a>
                   </Link>
                 </div>
-                <div className="flex flex-col flex-1 pb-20 pr-24">
+                <div className="flex flex-col flex-1 pt-24 pb-20 pr-24">
                   <div className="flex justify-start m-auto">
                     <div className="w-[60px] h-[60px] bg-yellow" />
                     <div className="flex flex-col ml-10">
