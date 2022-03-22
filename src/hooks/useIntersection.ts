@@ -1,21 +1,21 @@
 import React from 'react';
 
-const useIntersection = (options: any) => {
+interface IOptions {
+  root: null,
+  rootMargin: string,
+  threshold: number,
+}
+
+const useIntersection = (options: IOptions) => {
   const elementRef = React.useRef(null);
+  const [visible, setIsVisible] = React.useState<boolean>();
 
-  //   const options = React.useCallback(() => ({
-  //     root: null,
-  //     rootMargin: '0px',
-  //     threshold: 1,
-  //   }), []);
-
-  const handleIntersection = React.useCallback((entries: IntersectionObserverEntry[]) => {
-    const ents = entries.map((entry) => ({ id: entry.target.id, intersecting: entry.isIntersecting }));
-    console.log('ents', ...ents);
+  const handleIntersection = React.useCallback((entry: IntersectionObserverEntry) => {
+    setIsVisible(entry.isIntersecting);
   }, []);
 
   React.useEffect(() => {
-    const observe = new IntersectionObserver(handleIntersection, options);
+    const observe = new IntersectionObserver(([entry]) => handleIntersection(entry), options);
 
     if (elementRef.current) {
       observe.observe(elementRef.current);
@@ -26,9 +26,12 @@ const useIntersection = (options: any) => {
         observe.unobserve(elementRef.current);
       }
     };
-  }, [handleIntersection, options, elementRef]);
+  }, [options, elementRef, handleIntersection]);
 
-  return [elementRef];
+  return {
+    visible,
+    add: [elementRef],
+  };
 };
 
 export { useIntersection };

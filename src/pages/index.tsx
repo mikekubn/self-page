@@ -1,60 +1,42 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Router from 'next/router';
 import { LeftSideHomePage, RightSideHomePage } from '@/components/Sections/HomeSection';
 import { useIntersection } from '../hooks';
 
 const Home: NextPage = (): React.ReactElement => {
-  const [startPositionY, setStartPositionY] = React.useState<number>();
-  const [homeRef] = useIntersection({
+  const [pathnameHash, setPathnameHash] = React.useState<string>();
+  const { visible: visibleHomeSection, add: [homeRef] } = useIntersection({
     root: null,
-    rootMargin: '0px',
+    rootMargin: '10%',
     threshold: 1,
   });
-  const [technologyRef] = useIntersection({
+  const { visible: visibleTechnologySection, add: [technologyRef] } = useIntersection({
     root: null,
-    rootMargin: '0px',
+    rootMargin: '10%',
     threshold: 1,
   });
-  const [contantRef] = useIntersection({
+  const { visible: visibleContanctSection, add: [contantRef] } = useIntersection({
     root: null,
-    rootMargin: '0px',
+    rootMargin: '10%',
     threshold: 1,
   });
 
   React.useEffect(() => {
-    const { scrollY } = window;
-    setStartPositionY(scrollY);
-  }, [startPositionY]);
-
-  const handleScroll = React.useCallback((e: Event) => {
-    if (!e.currentTarget) {
-      return;
+    if (visibleHomeSection) {
+      setPathnameHash('home');
+    } else if (visibleTechnologySection) {
+      setPathnameHash('technology');
+    } else if (visibleContanctSection) {
+      setPathnameHash('contact');
     }
 
-    if (!('scrollY' in e.currentTarget)) {
-      return;
-    }
-
-    const { scrollY } = e.currentTarget;
-
-    if (startPositionY !== undefined) {
-      if (startPositionY > scrollY) {
-        // console.log('up', scrollY);
-      } else if (startPositionY < scrollY) {
-        // console.log('down', scrollY);
-      }
-      setStartPositionY(scrollY);
-    }
-  }, [startPositionY]);
-
-  React.useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [handleScroll]);
+    Router.push({
+      pathname: '/',
+      hash: pathnameHash,
+    }, undefined, { scroll: false });
+  }, [visibleContanctSection, visibleTechnologySection, visibleHomeSection, pathnameHash]);
 
   return (
     <>
