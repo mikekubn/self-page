@@ -1,12 +1,11 @@
 import React from 'react';
 
-interface IOptions {
-  root: null,
-  rootMargin: string,
-  threshold: number,
-}
+const option = {
+  rootMargin: '10%',
+  threshold: 1,
+};
 
-const useIntersection = (options: IOptions) => {
+const useIntersection = () => {
   const elementRef = React.useRef(null);
   const [visible, setIsVisible] = React.useState<boolean>();
 
@@ -15,7 +14,7 @@ const useIntersection = (options: IOptions) => {
   }, []);
 
   React.useEffect(() => {
-    const observe = new IntersectionObserver(([entry]) => handleIntersection(entry), options);
+    const observe = new IntersectionObserver(([entry]) => handleIntersection(entry), option);
 
     if (elementRef.current) {
       observe.observe(elementRef.current);
@@ -26,7 +25,7 @@ const useIntersection = (options: IOptions) => {
         observe.unobserve(elementRef.current);
       }
     };
-  }, [options, elementRef, handleIntersection]);
+  }, [elementRef, handleIntersection]);
 
   return {
     visible,

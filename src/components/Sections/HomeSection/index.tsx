@@ -1,17 +1,33 @@
 import React from 'react';
 import Link from 'next/link';
 import { jobs_lan_en } from 'src/configs/lan_en';
+import Router from 'next/router';
+import { hrefs } from 'src/configs/navigation';
 import Card from '@/components/Card';
 import Navigation from '@/components/Navigation';
 import Name from '@/components/Name';
 import JobContent from '@/components/JobContent';
+import { useIntersection } from '@/hooks/index';
 
-const LeftSideHomePage = () => (
-  <div className="flex flex-col flex-1 pt-24 pl-24">
-    <Name />
-    <Navigation />
-  </div>
-);
+const LeftSideHomePage = () => {
+  const { visible, add: [ref] } = useIntersection();
+
+  React.useEffect(() => {
+    if (visible) {
+      Router.push({
+        pathname: '/',
+        hash: hrefs.home,
+      }, undefined, { scroll: false });
+    }
+  }, [visible]);
+
+  return (
+    <div id="home" ref={ref} className="flex flex-col flex-1 pt-24 pl-24">
+      <Name />
+      <Navigation />
+    </div>
+  );
+};
 
 const RightSideHomePage = () => (
   <div className="flex flex-col flex-1 pt-24 pr-24">

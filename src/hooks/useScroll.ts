@@ -2,6 +2,7 @@ import React from 'react';
 
 const useScroll = () => {
   const [startPositionY, setStartPositionY] = React.useState<number>();
+  const [position, setPosition] = React.useState<{ move: 'up' | 'down', num: number }>({ move: 'up', num: 0 });
 
   React.useEffect(() => {
     const { scrollY } = window;
@@ -21,9 +22,9 @@ const useScroll = () => {
 
     if (startPositionY !== undefined) {
       if (startPositionY > scrollY) {
-        console.log('up', scrollY);
+        setPosition({ move: 'up', num: scrollY });
       } else if (startPositionY < scrollY) {
-        console.log('down', scrollY);
+        setPosition({ move: 'down', num: scrollY });
       }
       setStartPositionY(scrollY);
     }
@@ -36,6 +37,11 @@ const useScroll = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [handleScroll]);
+
+  return {
+    move: position?.move,
+    num: position?.num,
+  };
 };
 
 export { useScroll };
