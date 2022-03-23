@@ -16,8 +16,9 @@ const ContactSection = () => {
   }, [visible]);
 
   return (
-    <div id="contact" ref={ref} className="flex flex-col flex-1 pt-24 pl-24">
-      CONTANCT
+    <div id="contact" ref={ref} className="flex flex-row flex-1">
+      <div className="flex flex-col flex-1 bg-purple">Picture</div>
+      <div className="flex flex-col flex-1 bg-green">Mail</div>
     </div>
   );
 };

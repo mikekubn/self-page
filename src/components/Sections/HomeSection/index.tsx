@@ -9,7 +9,7 @@ import Name from '@/components/Name';
 import JobContent from '@/components/JobContent';
 import { useIntersection } from '@/hooks/index';
 
-const LeftSideHomePage = () => {
+const HomeSection = () => {
   const { visible, add: [ref] } = useIntersection();
 
   React.useEffect(() => {
@@ -22,30 +22,29 @@ const LeftSideHomePage = () => {
   }, [visible]);
 
   return (
-    <div id="home" ref={ref} className="flex flex-col flex-1 pt-24 pl-24">
-      <Name />
-      <Navigation />
+    <div id="home" ref={ref} className="flex flex-row flex-1">
+      <div className="flex flex-col flex-1">
+        <Name />
+        <Navigation />
+      </div>
+      <div className="flex flex-col justify-center flex-1">
+        <h1 className="mx-auto mt-16 mb-10 text-3xl font-AsapItal">Work</h1>
+        <div className="flex flex-col mx-auto overflow-auto">
+          {
+            jobs_lan_en.map((job) => (
+              <Link key={job.id} href="/experience/[experienceId]" as={`/experience/${job.id}`} passHref>
+                <a>
+                  <Card>
+                    <JobContent truncate data={job} />
+                  </Card>
+                </a>
+              </Link>
+            ))
+          }
+        </div>
+      </div>
     </div>
   );
 };
 
-const RightSideHomePage = () => (
-  <div className="flex flex-col flex-1 pt-24 pr-24">
-    <h1 className="mx-auto mb-10 text-3xl font-AsapItal">Work experience</h1>
-    <div className="flex flex-col h-full mx-auto overflow-auto">
-      {
-        jobs_lan_en.map((job) => (
-          <Link key={job.id} href="/experience/[experienceId]" as={`/experience/${job.id}`} passHref>
-            <a>
-              <Card>
-                <JobContent data={job} />
-              </Card>
-            </a>
-          </Link>
-        ))
-          }
-    </div>
-  </div>
-);
-
-export { LeftSideHomePage, RightSideHomePage };
+export default HomeSection;

@@ -10,6 +10,7 @@ import { useTheme } from '@/provider/ThemeProvider';
 import Name from '@/components/Name';
 import { useNotification } from '@/hooks/useNotification';
 import Notification from '@/components/Notification';
+import JobContent from '@/components/JobContent';
 
 interface ITaskId {
   experienceId: string,
@@ -73,8 +74,8 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
         {
           description
             ? (
-              <>
-                <div className="flex flex-col flex-1 pt-24 pb-20 pl-24">
+              <div className="flex flex-row flex-1 p-24 pt-0 pb-20">
+                <div className="flex flex-col flex-1">
                   <Name />
                   <Link href="/" passHref>
                     <a className="flex items-center justify-center h-12 mr-10 border rounded-full cursor-pointer w-52 text-sky500 hover:bg-sky500/5">
@@ -82,18 +83,9 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
                     </a>
                   </Link>
                 </div>
-                <div className="flex flex-col flex-1 pt-24 pb-20 pr-24">
+                <div className="flex flex-col flex-1">
                   <div className="flex justify-start m-auto">
-                    <div className="w-[60px] h-[60px] bg-yellow" />
-                    <div className="flex flex-col ml-10">
-                      <h1 className="pb-1 text-xl font-AsapItal">{description.companyName}</h1>
-                      <p className="text-base italic font-Asap">{description.date}</p>
-                      <p className="text-base italic font-Asap">{description.where}</p>
-                      <h1 className="pt-5 text-xl font-Asap">{description.position}</h1>
-                      <div className="mt-4 w-96 pr-7">
-                        <p className="text-lg">{description.description}</p>
-                      </div>
-                    </div>
+                    <JobContent truncate={false} data={description} />
                   </div>
                   <div className="flex justify-end">
                     <div onClick={copy} className="flex items-center justify-center w-12 h-12 border rounded-full cursor-pointer text-sky500 hover:bg-sky500/5">
@@ -105,7 +97,7 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             )
             // TODO fix not found page
             : <div>Sorry not found!</div>
