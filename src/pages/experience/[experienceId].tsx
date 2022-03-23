@@ -29,7 +29,7 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
       await navigator.clipboard.writeText(`${window.location.href}`);
       setNotification({ visible: true, status: 'success', note: 'Copied success.' });
     } catch (e) {
-      setNotification({ visible: true, status: 'error', note: 'Copied error.' });
+      setNotification({ visible: true, status: 'error', note: 'Copied failed.' });
       console.error(e);
     }
   };
