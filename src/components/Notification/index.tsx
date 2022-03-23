@@ -37,7 +37,7 @@ const NotificaitonBox = ({ display, img, note }: INotificaitonBox) => (
           animate={{ x: -28, opacity: 1 }}
           exit={{ x: 300, opacity: 0 }}
           transition={{ duration: 0.7, ease: 'easeInOut' }}
-          className="z-50 flex justify-end mt-20"
+          className="absolute right-0 z-50 mt-20"
         >
           <div className="flex items-center px-4 rounded-lg w-60 h-11 bg-sky500/5">
             <Image src={img} width={18} height={18} />
