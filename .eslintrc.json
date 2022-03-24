@@ -69,6 +69,7 @@
       }
     ],
     "max-len": "off",
+    "react/prop-types": "off",
     "import/prefer-default-export": 0,
     "react/jsx-props-no-spreading": 0,
     "@typescript-eslint/ban-ts-ignore": 0,

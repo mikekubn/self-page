@@ -11,7 +11,11 @@ const TextArea = (props: IProps): React.ReactElement => {
   return (
     <>
       <label className="py-2">{label}</label>
-      <textarea required name={name} className="w-full h-32 pl-2 border rounded-lg resize-none border-sky500/70 hover:bg-sky500/10" />
+      <textarea
+        required
+        name={name}
+        className="w-full h-32 pl-2 bg-transparent border rounded-lg resize-none border-sky500/70 hover:bg-sky500/10"
+      />
     </>
   );
 };

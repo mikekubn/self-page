@@ -1,12 +1,12 @@
 import React from 'react';
-import { useTheme } from 'src/providers/ThemeProvider';
+import { useThemeProvider } from 'src/providers/ThemeProvider';
 import Image from 'next/image';
 import ToggleButton from '@/components/ToggleButton';
 import { useScroll } from '@/hooks/index';
 
 const TopPanel = (): React.ReactElement => {
   const { move } = useScroll();
-  const { state, toggle } = useTheme();
+  const { state, toggle } = useThemeProvider();
 
   const display = move === 'down' ? 'hidden' : 'flex';
 

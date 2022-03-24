@@ -14,15 +14,17 @@ const useIntersection = () => {
   }, []);
 
   React.useEffect(() => {
+    let observerRef: never;
     const observe = new IntersectionObserver(([entry]) => handleIntersection(entry), option);
 
     if (elementRef.current) {
       observe.observe(elementRef.current);
+      observerRef = elementRef.current;
     }
 
     return () => {
-      if (elementRef.current) {
-        observe.unobserve(elementRef.current);
+      if (observerRef) {
+        observe.unobserve(observerRef);
       }
     };
   }, [elementRef, handleIntersection]);

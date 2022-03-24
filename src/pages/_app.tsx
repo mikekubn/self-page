@@ -5,18 +5,18 @@ import MainLayout from 'src/layouts/MainLayout';
 import Footer from 'src/components/Footer';
 import TopPanel from 'src/components/TopPanel';
 import { ThemeProvider } from 'src/providers/ThemeProvider';
-import { AnimatePresence } from 'framer-motion';
+import { NotificationProvider } from 'src/providers/NotificationProvider';
 
 const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => (
-  <AnimatePresence exitBeforeEnter>
-    <ThemeProvider>
+  <ThemeProvider>
+    <NotificationProvider>
       <TopPanel />
       <MainLayout>
         <Component {...pageProps} />
       </MainLayout>
       <Footer />
-    </ThemeProvider>
-  </AnimatePresence>
+    </NotificationProvider>
+  </ThemeProvider>
 );
 
 export default MyApp;
