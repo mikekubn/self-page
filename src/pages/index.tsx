@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import HomeSection from '@/components/Sections/HomeSection';
 import ContactSection from '@/components/Sections/ContactSection';
+import MotionDiv from '@/components/Motions/MotionDiv';
 
 const Home: NextPage = (): React.ReactElement => (
   <>
@@ -12,11 +13,14 @@ const Home: NextPage = (): React.ReactElement => (
       <link rel="icon" href="/favicon.png" />
     </Head>
     <section className="flex h-screen p-24 pt-0 pb-20">
-      <HomeSection />
+      <MotionDiv>
+        <HomeSection />
+      </MotionDiv>
     </section>
     <section className="flex h-screen p-24 pb-20">
       <ContactSection />
     </section>
   </>
 );
+
 export default Home;

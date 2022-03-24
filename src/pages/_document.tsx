@@ -5,9 +5,9 @@ import Document, {
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" className="scroll-smooth">
         <Head />
-        <body className="h-full bg-white dark:bg-gray-dark ease-in-out duration-700">
+        <body className="h-full bg-white dark:bg-gray900 ease-in-out duration-700 text-gray500">
           <Main />
           <NextScript />
         </body>
