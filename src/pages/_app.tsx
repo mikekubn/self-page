@@ -5,16 +5,18 @@ import MainLayout from 'src/layouts/MainLayout';
 import Footer from 'src/components/Footer';
 import TopPanel from 'src/components/TopPanel';
 import { ThemeProvider } from 'src/providers/ThemeProvider';
+import { NotificationProvider } from 'src/providers/NotificationProvider';
 
 const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => (
-  <div className="flex flex-col flex-1 min-h-screen">
-    <ThemeProvider>
+  <ThemeProvider>
+    <NotificationProvider>
       <TopPanel />
       <MainLayout>
         <Component {...pageProps} />
       </MainLayout>
       <Footer />
-    </ThemeProvider>
-  </div>
+    </NotificationProvider>
+  </ThemeProvider>
 );
+
 export default MyApp;

@@ -1,4 +1,8 @@
+export const hrefs = {
+  home: 'home',
+  contact: 'contact',
+};
+
 export const navigation = [
-  { name: 'Technology', url: '/#technology' },
-  { name: 'Contact', url: '/#contact' },
+  { name: 'Contact', url: '#contact' },
 ];

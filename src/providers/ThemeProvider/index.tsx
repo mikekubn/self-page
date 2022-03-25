@@ -1,5 +1,5 @@
-import { useMatchMedia } from 'src/hooks';
 import React from 'react';
+import { useMatchMedia } from 'src/hooks';
 
 type ThemeProviderProps = { children: React.ReactNode };
 type ThemeState = {
@@ -36,14 +36,14 @@ const ThemeProvider = ({ children }: ThemeProviderProps): React.ReactElement => 
   );
 };
 
-const useTheme = () => {
+const useThemeProvider = () => {
   const context = React.useContext(ThemeContex);
 
   if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error('useThemeProvider must be used within a ThemeProvider');
   }
 
   return context;
 };
 
-export { ThemeProvider, useTheme };
+export { ThemeProvider, useThemeProvider };
