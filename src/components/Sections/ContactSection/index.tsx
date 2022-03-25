@@ -3,21 +3,16 @@ import Router from 'next/router';
 import { hrefs } from 'src/configs/navigation';
 import emailjs from '@emailjs/browser';
 import Image from 'next/image';
-import { useDimension, useIntersection } from '@/hooks/index';
+import { useIntersection } from '@/hooks/index';
 import Input from '@/components/Input';
 import TextArea from '@/components/TextArea';
 import { useNotificationProvider } from '@/provider/NotificationProvider';
-
-const images = ['typescript', 'react', 'nuxt', 'cypress', 'javascript', 'framer'];
+import ImageTooltip from '@/components/ImageTooltip';
 
 const ContactSection = (): React.ReactElement => {
   const { visible, add: [ref] } = useIntersection();
   const { dispatch } = useNotificationProvider();
   const form = React.useRef(null);
-  const element = React.useRef(null);
-  const dimension = useDimension({ ref: element });
-
-  console.log('elementResize', dimension.height);
 
   const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -42,13 +37,10 @@ const ContactSection = (): React.ReactElement => {
   return (
     <>
       <div id="contact" ref={ref} className="flex flex-row flex-1">
-        <div className="flex flex-col items-center justify-center flex-1 bg-orange" ref={element}>
-          <div>
-            {
-              images.map((val) => <Image key={val} src={`/img/technology/${val}.png`} height={90} width={90} alt={`Technology ${val}`} />)
-            }
-          </div>
+        <div className="flex flex-row flex-1 w-96">
+          <Gallery />
         </div>
+
         <div className="flex flex-col items-center justify-center flex-1">
           <div className="flex flex-col overflow-auto">
             <form ref={form} onSubmit={handleSubmitForm} className="flex flex-col mx-14 w-96">
@@ -71,5 +63,64 @@ const ContactSection = (): React.ReactElement => {
     </>
   );
 };
+
+const Gallery = () => (
+  <div className="flex flex-row flex-1 w-96">
+    <div className="flex flex-col justify-center flex-1">
+      <ImageTooltip
+        positon="items-center"
+        root="technology/typescript"
+        height={90}
+        width={90}
+        alt="Technology typescript"
+        tooltip="Typescript"
+      />
+      <ImageTooltip
+        positon="items-start"
+        root="technology/cypress"
+        height={90}
+        width={90}
+        alt="Technology cypress"
+        tooltip="Cypress"
+      />
+    </div>
+    <div className="flex flex-col justify-end flex-1">
+      <ImageTooltip
+        positon="items-end"
+        root="technology/react"
+        height={90}
+        width={90}
+        alt="Technology react"
+        tooltip="React"
+      />
+      <ImageTooltip
+        positon="items-start"
+        root="technology/javascript"
+        height={90}
+        width={90}
+        alt="Technology javascript"
+        tooltip="Javascript"
+      />
+    </div>
+    <div className="flex flex-col justify-center flex-1">
+      <ImageTooltip
+        positon="items-start"
+        root="technology/nuxt"
+        height={90}
+        width={90}
+        alt="Technology nuxt"
+        tooltip="Nuxt"
+      />
+      <ImageTooltip
+        positon="items-end"
+        root="technology/framer"
+        height={90}
+        width={90}
+        alt="Technology framer"
+        tooltip="Framer"
+      />
+    </div>
+  </div>
+);
 
 export default ContactSection;
