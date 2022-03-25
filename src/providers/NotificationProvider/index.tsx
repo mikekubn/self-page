@@ -35,8 +35,6 @@ const NotificationContext = React.createContext<Notificationtate | undefined>(De
 const NotificationProvider = ({ children }: NotificationProviderProps) => {
   const [notification, setNotificaiton] = React.useState<INotificaiton>(DefaultValue.state);
 
-  console.log('notification', notification);
-
   React.useEffect(() => {
     const timetout = setTimeout(() => setNotificaiton(DefaultValue.state), 1500);
 

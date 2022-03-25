@@ -3,15 +3,21 @@ import Router from 'next/router';
 import { hrefs } from 'src/configs/navigation';
 import emailjs from '@emailjs/browser';
 import Image from 'next/image';
-import { useIntersection } from '@/hooks/index';
+import { useDimension, useIntersection } from '@/hooks/index';
 import Input from '@/components/Input';
 import TextArea from '@/components/TextArea';
 import { useNotificationProvider } from '@/provider/NotificationProvider';
+
+const images = ['typescript', 'react', 'nuxt', 'cypress', 'javascript', 'framer'];
 
 const ContactSection = (): React.ReactElement => {
   const { visible, add: [ref] } = useIntersection();
   const { dispatch } = useNotificationProvider();
   const form = React.useRef(null);
+  const element = React.useRef(null);
+  const dimension = useDimension({ ref: element });
+
+  console.log('elementResize', dimension.height);
 
   const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,16 +42,20 @@ const ContactSection = (): React.ReactElement => {
   return (
     <>
       <div id="contact" ref={ref} className="flex flex-row flex-1">
-        <div className="flex flex-col flex-1 bg-purple">
-          Picture
+        <div className="flex flex-col items-center justify-center flex-1 bg-orange" ref={element}>
+          <div>
+            {
+              images.map((val) => <Image key={val} src={`/img/technology/${val}.png`} height={90} width={90} alt={`Technology ${val}`} />)
+            }
+          </div>
         </div>
         <div className="flex flex-col items-center justify-center flex-1">
           <div className="flex flex-col overflow-auto">
             <form ref={form} onSubmit={handleSubmitForm} className="flex flex-col mx-14 w-96">
               <h3 className="flex pb-5 mx-auto text-lg font-AsapItal">Contact me</h3>
-              <Input label="Subject" type="subject" name="subject" />
-              <Input label="Full Name" type="text" name="from_name" />
-              <Input label="Your Email" type="email" name="from_email" />
+              <Input label="Subject" type="subject" name="subject" placeholder="Write here" />
+              <Input label="Full Name" type="text" name="from_name" placeholder="Write here" />
+              <Input label="Your Email" type="email" name="from_email" placeholder="example@foo.com" />
               <TextArea name="message" label="Your message" />
               <button
                 type="submit"

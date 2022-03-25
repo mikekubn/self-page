@@ -15,20 +15,12 @@ const TopPanel = (): React.ReactElement => {
       <div className="flex ml-auto">
         <RenderThemeImage val={state} />
         <ToggleButton value={state} callback={(val) => toggle(val)} />
-        <PlaceholderLanguage />
       </div>
     </header>
   );
 };
 
 export default TopPanel;
-
-const PlaceholderLanguage = () => (
-  <div className="flex flex-row items-center pl-4 cursor-pointer">
-    <Image src="/img/translate.png" height={25} width={25} alt="Change language image" />
-    <p className="p-2 text-sm">EN</p>
-  </div>
-);
 
 const ProvideImage = ({ val }: { val: boolean }) => {
   if (val) {
