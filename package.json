@@ -6,7 +6,7 @@
   "author": "Michael Kubín",
   "engines": {
     "node": ">= 14",
-    "npm": "^6"
+    "npm": ">= 6"
   },
   "scripts": {
     "dev": "open http://localhost:3000 && next dev",
@@ -24,7 +24,7 @@
     "classnames": "^2.3.1",
     "framer-motion": "^6.2.8",
     "luxon": "^2.3.0",
-    "next": "12.0.10",
+    "next": "^12.1.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-modal": "^3.14.4"

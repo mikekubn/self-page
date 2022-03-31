@@ -23,12 +23,12 @@ const HomeSection = () => {
   }, [visible]);
 
   return (
-    <div id="home" ref={ref} className="flex flex-row flex-1">
-      <div className="flex flex-col flex-1">
+    <div id="home" ref={ref} className="flex-row-1">
+      <div className="flex-col-1">
         <Name />
         <Navigation />
       </div>
-      <div className="flex flex-col justify-center flex-1">
+      <div className="justify-center flex-col-1">
         <h1 className="mx-auto mt-16 mb-10 text-3xl font-AsapItal">Work</h1>
         <div className="flex flex-col mx-auto overflow-auto">
           {

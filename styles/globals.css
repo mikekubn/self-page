@@ -4,3 +4,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .flex-col-1 {
+        @apply flex flex-col flex-1
+    }
+    .center-layout-conteiner {
+        @apply container mx-auto flex-col-1 max-w-screen-xl
+    }
+    .flex-row-1 {
+        @apply flex flex-row flex-1
+    }
+    .flex-row-center-content {
+        @apply flex flex-row items-center justify-center
+    }
+    .flex-col-center-content {
+        @apply flex flex-col items-center justify-center
+    }
+    .main-page-layout {
+        @apply flex h-screen p-24 pt-0 pb-20
+    }
+}
+
+@layer components {
+    .card {
+        @apply flex h-48 mb-10 border border-solid rounded-2xl shadow-sm
+    }
+    .card-content {
+        @apply flex cursor-pointer
+    }
+    .footer {
+        @apply bottom-0 left-0 flex items-center justify-center w-screen
+    }
+    .button-style {
+        @apply flex items-center justify-center h-12 border rounded-full cursor-pointer mt-7 w-52 text-sky500 hover:bg-sky500/5
+    }
+}

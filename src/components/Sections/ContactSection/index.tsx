@@ -3,6 +3,7 @@ import Router from 'next/router';
 import { hrefs } from 'src/configs/navigation';
 import emailjs from '@emailjs/browser';
 import Image from 'next/image';
+import { images } from 'src/configs/images';
 import { useIntersection } from '@/hooks/index';
 import Input from '@/components/Input';
 import TextArea from '@/components/TextArea';
@@ -35,9 +36,9 @@ const ContactSection = (): React.ReactElement => {
   }, [visible]);
 
   return (
-    <div id="contact" ref={ref} className="flex flex-row flex-1">
+    <div id="contact" ref={ref} className="flex-row-1">
       <Gallery />
-      <div className="flex flex-col items-center justify-center flex-1">
+      <div className="flex-1 flex-col-center-content">
         <div className="flex flex-col overflow-auto">
           <form ref={form} onSubmit={handleSubmitForm} className="flex flex-col mx-14 w-96">
             <h3 className="flex pb-5 mx-auto text-lg font-AsapItal">Contact me</h3>
@@ -47,7 +48,7 @@ const ContactSection = (): React.ReactElement => {
             <TextArea name="message" label="Your message" />
             <button
               type="submit"
-              className="flex items-center justify-center h-12 border rounded-full cursor-pointer mt-7 w-52 text-sky500 hover:bg-sky500/5"
+              className="button-style"
             >
               <p className="pr-3">Send</p>
               <Image src="/img/email.png" height={26} width={26} />
@@ -60,61 +61,20 @@ const ContactSection = (): React.ReactElement => {
 };
 
 const Gallery = () => (
-  <div className="flex flex-row flex-1 my-auto w-96">
-    <div className="flex flex-col justify-center flex-1">
-      <ImageTooltip
-        positon="items-center"
-        root="technology/typescript"
-        height={90}
-        width={90}
-        alt="Technology typescript"
-        tooltip="Typescript"
-      />
-      <ImageTooltip
-        positon="items-start"
-        root="technology/cypress"
-        height={90}
-        width={90}
-        alt="Technology cypress"
-        tooltip="Cypress"
-      />
-    </div>
-    <div className="flex flex-col justify-end flex-1">
-      <ImageTooltip
-        positon="items-end"
-        root="technology/react"
-        height={90}
-        width={90}
-        alt="Technology react"
-        tooltip="React"
-      />
-      <ImageTooltip
-        positon="items-start"
-        root="technology/javascript"
-        height={90}
-        width={90}
-        alt="Technology javascript"
-        tooltip="Javascript"
-      />
-    </div>
-    <div className="flex flex-col justify-center flex-1">
-      <ImageTooltip
-        positon="items-end"
-        root="technology/nuxt"
-        height={90}
-        width={90}
-        alt="Technology nuxt"
-        tooltip="Nuxt"
-      />
-      <ImageTooltip
-        positon="items-start"
-        root="technology/framer"
-        height={90}
-        width={90}
-        alt="Technology framer"
-        tooltip="Framer"
-      />
-    </div>
+  <div className="my-auto flex-row-1 h-96">
+    {
+      images.map((image) => (
+        <ImageTooltip
+          key={image.id}
+          positon={image.position}
+          root={image.src}
+          height={90}
+          width={90}
+          alt={image.alt}
+          tooltip={image.tooltop}
+        />
+      ))
+    }
   </div>
 );
 
