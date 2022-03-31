@@ -36,11 +36,11 @@ const ContactSection = (): React.ReactElement => {
   }, [visible]);
 
   return (
-    <div id="contact" ref={ref} className="flex-row-1">
-      <Gallery />
-      <div className="flex-1 flex-col-center-content">
+    <div id="contact" ref={ref} className="flex-col-1 lg:flex-row-1">
+      {/* <Gallery /> */}
+      <div className="flex flex-col justify-end flex-1 mb-5 lg:flex-col-center-content lg:mb-0">
         <div className="flex flex-col overflow-auto">
-          <form ref={form} onSubmit={handleSubmitForm} className="flex flex-col mx-14 w-96">
+          <form ref={form} onSubmit={handleSubmitForm} className="flex flex-col mx-auto w-72 lg:w-96 lg:mx-14">
             <h3 className="flex pb-5 mx-auto text-lg font-AsapItal">Contact me</h3>
             <Input label="Subject" type="subject" name="subject" placeholder="Write here" />
             <Input label="Full Name" type="text" name="from_name" placeholder="Write here" />
@@ -61,7 +61,7 @@ const ContactSection = (): React.ReactElement => {
 };
 
 const Gallery = () => (
-  <div className="my-auto flex-row-1 h-96">
+  <div className="lg:my-auto lg:flex-row-1 lg:h-96">
     {
       images.map((image) => (
         <ImageTooltip

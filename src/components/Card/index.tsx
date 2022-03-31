@@ -10,9 +10,7 @@ const Card = ({ children, handleClick }: ICard): React.ReactElement => (
     onClick={handleClick}
     className="card border-sky500/5 shadow-sky500/5 hover:shadow-sky500/20"
   >
-    <div className="card-content">
-      {children}
-    </div>
+    {children}
   </section>
 );
 
