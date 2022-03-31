@@ -73,7 +73,7 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement => {
           description
             ? (
               <MotionDiv>
-                <div className="p-24 pt-0 pb-20 flex-row-1">
+                <div className="p-24 pt-0 pb-20 flex-col-1 lg:flex-row-1">
                   <div className="flex-col-1">
                     <Name />
                     <Link href="/" passHref>

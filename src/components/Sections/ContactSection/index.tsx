@@ -8,6 +8,7 @@ import Input from '@/components/Input';
 import TextArea from '@/components/TextArea';
 import { useNotificationProvider } from '@/provider/NotificationProvider';
 import ImageTooltip from '@/components/ImageTooltip';
+import MotionDiv from '@/components/Motions/MotionDiv';
 
 const ContactSection = (): React.ReactElement => {
   const { visible, add: [ref] } = useIntersection();
@@ -36,23 +37,27 @@ const ContactSection = (): React.ReactElement => {
 
   return (
     <div id="contact" ref={ref} className="flex-col-1 lg:flex-row-1">
-      <Gallery />
+      <MotionDiv>
+        <Gallery />
+      </MotionDiv>
       <div className="justify-end my-8 flex-col-1 lg:flex-col-center-content lg:mb-0">
         <div className="flex flex-col overflow-auto">
-          <form ref={form} onSubmit={handleSubmitForm} className="flex flex-col mx-auto w-72 lg:w-96 lg:mx-14">
-            <h3 className="flex pb-5 mx-auto text-2xl font-AsapItal">Contact me</h3>
-            <Input label="Subject" type="subject" name="subject" placeholder="Write here" />
-            <Input label="Full Name" type="text" name="from_name" placeholder="Write here" />
-            <Input label="Your Email" type="email" name="from_email" placeholder="example@foo.com" />
-            <TextArea name="message" label="Your message" />
-            <button
-              type="submit"
-              className="button-style"
-            >
-              <p className="pr-3">Send</p>
-              <Image src="/img/email.png" height={26} width={26} />
-            </button>
-          </form>
+          <MotionDiv>
+            <form ref={form} onSubmit={handleSubmitForm} className="flex flex-col mx-auto w-72 lg:w-96 lg:mx-14">
+              <h3 className="flex pb-5 mx-auto text-2xl font-AsapItal">Contact me</h3>
+              <Input label="Subject" type="subject" name="subject" placeholder="Write here" />
+              <Input label="Full Name" type="text" name="from_name" placeholder="Write here" />
+              <Input label="Your Email" type="email" name="from_email" placeholder="example@foo.com" />
+              <TextArea name="message" label="Your message" />
+              <button
+                type="submit"
+                className="button-style"
+              >
+                <p className="pr-3">Send</p>
+                <Image src="/img/email.png" height={26} width={26} />
+              </button>
+            </form>
+          </MotionDiv>
         </div>
       </div>
     </div>
