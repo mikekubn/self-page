@@ -35,37 +35,32 @@ const ContactSection = (): React.ReactElement => {
   }, [visible]);
 
   return (
-    <>
-      <div id="contact" ref={ref} className="flex flex-row flex-1">
-        <div className="flex flex-row flex-1 w-96">
-          <Gallery />
-        </div>
-
-        <div className="flex flex-col items-center justify-center flex-1">
-          <div className="flex flex-col overflow-auto">
-            <form ref={form} onSubmit={handleSubmitForm} className="flex flex-col mx-14 w-96">
-              <h3 className="flex pb-5 mx-auto text-lg font-AsapItal">Contact me</h3>
-              <Input label="Subject" type="subject" name="subject" placeholder="Write here" />
-              <Input label="Full Name" type="text" name="from_name" placeholder="Write here" />
-              <Input label="Your Email" type="email" name="from_email" placeholder="example@foo.com" />
-              <TextArea name="message" label="Your message" />
-              <button
-                type="submit"
-                className="flex items-center justify-center h-12 border rounded-full cursor-pointer mt-7 w-52 text-sky500 hover:bg-sky500/5"
-              >
-                <p className="pr-3">Send</p>
-                <Image src="/img/email.png" height={26} width={26} />
-              </button>
-            </form>
-          </div>
+    <div id="contact" ref={ref} className="flex flex-row flex-1">
+      <Gallery />
+      <div className="flex flex-col items-center justify-center flex-1">
+        <div className="flex flex-col overflow-auto">
+          <form ref={form} onSubmit={handleSubmitForm} className="flex flex-col mx-14 w-96">
+            <h3 className="flex pb-5 mx-auto text-lg font-AsapItal">Contact me</h3>
+            <Input label="Subject" type="subject" name="subject" placeholder="Write here" />
+            <Input label="Full Name" type="text" name="from_name" placeholder="Write here" />
+            <Input label="Your Email" type="email" name="from_email" placeholder="example@foo.com" />
+            <TextArea name="message" label="Your message" />
+            <button
+              type="submit"
+              className="flex items-center justify-center h-12 border rounded-full cursor-pointer mt-7 w-52 text-sky500 hover:bg-sky500/5"
+            >
+              <p className="pr-3">Send</p>
+              <Image src="/img/email.png" height={26} width={26} />
+            </button>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 const Gallery = () => (
-  <div className="flex flex-row flex-1 w-96">
+  <div className="flex flex-row flex-1 my-auto w-96">
     <div className="flex flex-col justify-center flex-1">
       <ImageTooltip
         positon="items-center"
@@ -104,7 +99,7 @@ const Gallery = () => (
     </div>
     <div className="flex flex-col justify-center flex-1">
       <ImageTooltip
-        positon="items-start"
+        positon="items-end"
         root="technology/nuxt"
         height={90}
         width={90}
@@ -112,7 +107,7 @@ const Gallery = () => (
         tooltip="Nuxt"
       />
       <ImageTooltip
-        positon="items-end"
+        positon="items-start"
         root="technology/framer"
         height={90}
         width={90}
