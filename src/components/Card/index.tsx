@@ -8,9 +8,9 @@ interface ICard {
 const Card = ({ children, handleClick }: ICard): React.ReactElement => (
   <section
     onClick={handleClick}
-    className="flex h-48 mb-10 border border-solid shadow-lg border-sky500/5 rounded-2xl shadow-sky500/5 hover:shadow-sky500/20"
+    className="card border-sky500/5 shadow-sky500/5 hover:shadow-sky500/20"
   >
-    <div className="flex cursor-pointer">
+    <div className="card-content">
       {children}
     </div>
   </section>
