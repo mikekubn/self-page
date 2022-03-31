@@ -10,7 +10,7 @@ const Card = ({ children, handleClick }: ICard): React.ReactElement => (
     onClick={handleClick}
     className="flex h-48 mb-10 border border-solid shadow-lg border-sky500/5 rounded-2xl shadow-sky500/5 hover:shadow-sky500/20"
   >
-    <div className="flex w-full cursor-pointer">
+    <div className="flex cursor-pointer">
       {children}
     </div>
   </section>

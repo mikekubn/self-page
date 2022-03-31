@@ -4,7 +4,7 @@ interface IProps {
   children: React.ReactNode,
 }
 const CenterLayout = ({ children }: IProps): React.ReactElement => (
-  <main className="container flex flex-col flex-1 mx-auto w-[1200px]">
+  <main className="container flex flex-col flex-1 mx-auto max-w-screen-xl">
     {children}
   </main>
 );

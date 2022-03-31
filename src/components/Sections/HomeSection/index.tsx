@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { jobs_lan_en } from 'src/configs/lan_en';
 import Router from 'next/router';
 import { hrefs } from 'src/configs/navigation';
+import Image from 'next/image';
 import Card from '@/components/Card';
 import Navigation from '@/components/Navigation';
 import Name from '@/components/Name';
