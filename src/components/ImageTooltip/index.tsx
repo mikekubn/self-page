@@ -14,7 +14,7 @@ const ImageTooltip = ({
   root, height, width, alt, tooltip, positon,
 }: IImageTooltop): React.ReactElement => (
   <div className={`flex flex-col ${positon} m-7`}>
-    <Image src={`/img/${root}.png`} height={height} width={width} alt={alt} />
+    <Image src={`/img/${root}.png`} height={height} width={width} alt={alt} priority />
     <p className="mt-2">{tooltip}</p>
   </div>
 );
