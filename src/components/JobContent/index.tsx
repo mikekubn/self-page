@@ -11,17 +11,18 @@ const JobContent = ({ data, truncate, modal }: { data: IJob, truncate: boolean, 
 
   return (
     <div className="m-3 lg:m-5 flex-row-1">
-      <div className="flex flex-col">
-        <div className="w-16 h-16">
-          <Image src={image} width={60} height={60} priority />
+      <div className={modal ? 'flex mx-auto' : 'flex'}>
+        <div className="flex flex-col">
+          <div className="w-16 h-16">
+            <Image src={image} width={60} height={60} priority />
+          </div>
         </div>
-      </div>
-      <div className="flex w-48 ml-2 flex-col-1 lg:w-96">
-        <h1 className="pb-1 text-lg font-AsapItal">{companyName}</h1>
-        <p className="text-sm italic font-Asap">{date}</p>
-        <p className="text-sm italic font-Asap">{where}</p>
-        <h1 className="pt-5 pb-2 text-lg font-bold font-AsapItal">{position}</h1>
-        {
+        <div className="flex w-48 ml-2 flex-col-1 lg:w-96">
+          <h1 className="pb-1 text-lg font-AsapItal">{companyName}</h1>
+          <p className="text-sm italic font-Asap">{date}</p>
+          <p className="text-sm italic font-Asap">{where}</p>
+          <h1 className="pt-5 pb-2 text-lg font-bold font-AsapItal">{position}</h1>
+          {
           modal
             ? (
               <ul className="list-disc leading-6">
@@ -30,6 +31,7 @@ const JobContent = ({ data, truncate, modal }: { data: IJob, truncate: boolean, 
             )
             : <p className={`text-base ${abridge}`}>{description.join(', ')}</p>
         }
+        </div>
       </div>
     </div>
   );
