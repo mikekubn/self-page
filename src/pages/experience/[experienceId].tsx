@@ -144,7 +144,7 @@ const MobileModal = ({ data, handleClick }: { data: IJob, handleClick: () => voi
     <div className="items-center mt-10 flex-row-1">
       <JobContent modal truncate={false} data={data} />
     </div>
-    <div className="flex-row-1">
+    <div className="my-5 flex-row-1">
       <div className="justify-end flex-col-1">
         <Link href="/" passHref>
           <a className="flex items-center justify-center w-10 h-10 border rounded-full cursor-pointer text-sky500 hover:bg-sky500/5">
