@@ -36,7 +36,7 @@ const HomeSection = () => {
               <Link key={job.id} href="/experience/[experienceId]" as={`/experience/${job.id}`} passHref>
                 <a>
                   <Card>
-                    <JobContent truncate data={job} />
+                    <JobContent modal={false} truncate data={job} />
                   </Card>
                 </a>
               </Link>

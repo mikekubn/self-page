@@ -123,7 +123,7 @@ const DesktopModal = ({ data, handleClick }: { data: IJob, handleClick: () => vo
     </div>
     <div className="flex-col-1">
       <div className="flex items-center flex-1">
-        <JobContent truncate={false} data={data} />
+        <JobContent modal truncate={false} data={data} />
       </div>
       <div className="flex justify-end">
         <div onClick={handleClick} className="flex items-center justify-center w-12 h-12 border rounded-full cursor-pointer text-sky500 hover:bg-sky500/5">
@@ -142,7 +142,7 @@ const MobileModal = ({ data, handleClick }: { data: IJob, handleClick: () => voi
   <div className="mt-10 flex-col-1">
     <Name />
     <div className="items-center mt-10 flex-row-1">
-      <JobContent truncate={false} data={data} />
+      <JobContent modal truncate={false} data={data} />
     </div>
     <div className="flex-row-1">
       <div className="justify-end flex-col-1">
@@ -152,15 +152,12 @@ const MobileModal = ({ data, handleClick }: { data: IJob, handleClick: () => voi
           </a>
         </Link>
       </div>
-      <div className="items-end justify-end flex-col-1">
+      <div className="items-end justify-end flex-row-1">
         <div onClick={handleClick} className="flex items-center justify-center w-10 h-10 border rounded-full cursor-pointer text-sky500 hover:bg-sky500/5">
           <Image src="/img/link.png" width={24} height={24} alt="Copy link" />
         </div>
-      </div>
-      <div className="items-end justify-end flex-col-1">
-        <div className="pl-4 flex-row-center-content">
-          <Image src="/img/fork.png" width={28} height={28} alt="Moved from home page" />
-          <p className="pl-2">{data.companyName}</p>
+        <div className="flex items-center justify-center w-10 h-10">
+          <Image src="/img/fork.png" width={24} height={24} alt="Moved from home page" />
         </div>
       </div>
     </div>
