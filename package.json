@@ -4,10 +4,6 @@
   "version": "0.0.1",
   "main": "pages/_app.tsx",
   "author": "Michael Kubín",
-  "engines": {
-    "node": ">= 14",
-    "npm": ">= 6"
-  },
   "scripts": {
     "dev": "open http://localhost:3000 && next dev",
     "dev:https": "local-ssl-proxy --source 3001 --target 3000",
