@@ -75,9 +75,9 @@ const NotificaitonBox = ({ display, img, note }: INotificaitonBox) => (
             transition={{ duration: 0.7, ease: 'easeInOut' }}
             className="fixed right-0 z-50 mt-12"
           >
-            <div className="flex items-center px-4 rounded-lg w-60 h-11 bg-sky500/5">
+            <div className="flex items-center px-4 rounded-lg h-9 w-36 lg:w-60 lg:h-11 bg-sky500/5">
               <Image src={img} width={18} height={18} />
-              <p className="pl-4">{note}</p>
+              <p className="pl-2 text-sm lg:pl-4">{note}</p>
             </div>
           </motion.div>
         )
