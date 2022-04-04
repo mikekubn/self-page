@@ -1,6 +1,6 @@
 name: Next.js Pipelines
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   lint:

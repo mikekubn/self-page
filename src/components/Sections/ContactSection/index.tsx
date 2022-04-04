@@ -19,7 +19,7 @@ const ContactSection = (): React.ReactElement => {
     event.preventDefault();
 
     try {
-      emailjs.sendForm('service_usi3vfs', 'template_efxt2vf', event.currentTarget, 'iX4EH4E_q3qFoSzUG');
+      emailjs.sendForm(`${process.env.NEXT_PUBLIC_SERVICE_ID}`, `${process.env.NEXT_PUBLIC_TEMPLATE_ID}`, event.currentTarget, `${process.env.NEXT_PUBLIC_USER_ID}`);
       dispatch({ visible: true, status: 'success', note: 'Email send success.' });
     } catch (e) {
       dispatch({ visible: true, status: 'error', note: 'Email send failed.' });
