@@ -10,8 +10,7 @@
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "plugin:@next/next/recommended",
-    "plugin:tailwindcss/recommended",
-    "plugin:tailwind/recommended"
+    "plugin:tailwindcss/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
