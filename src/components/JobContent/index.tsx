@@ -17,7 +17,7 @@ const JobContent = ({ data, truncate, modal }: { data: IJob, truncate: boolean, 
             <Image src={image} width={60} height={60} priority />
           </div>
         </div>
-        <div className="flex w-48 ml-2 flex-col-1 lg:w-96">
+        <div className="flex w-48 ml-2 flex-col-1 sm:w-56 lg:w-96">
           <h1 className="pb-1 text-lg font-AsapItal">{companyName}</h1>
           <p className="text-sm italic font-Asap">{date}</p>
           <p className="text-sm italic font-Asap">{where}</p>
