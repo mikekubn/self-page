@@ -1,18 +1,30 @@
 name: Next.js Pipelines
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   test-lint:
     name: lint
     runs-on: ubuntu-latest
+
+    stratefgy: 
+      matrix:
+        node-version: [14.x]
+
     steps:
-      - name: Clone Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Install Dependencies
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
         run: | 
           echo "Running Installing Dependecies ... "
           npm install
+
       - name: Run Linting
         run: |
           echo "Running Linting ... "
@@ -21,14 +33,26 @@ jobs:
   build:
     name: build
     runs-on: ubuntu-laatest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
     steps:
-      - name: Clone Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Install Dependencies
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+      - name: Install dependencies
         run: | 
           echo "Running Installing Dependecies ... "
           npm install
-      - name: Run Build
+
+      - name: Run build
         run: |
           echo "Build app ... "
           npm run build
