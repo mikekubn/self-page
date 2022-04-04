@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const images = [
-  { name: 'GitHub', src: 'github', url: 'https://github.com/mikekubn' },
-  { name: 'LinkedIn', src: 'linkedin', url: 'https://www.linkedin.com/in/michael-kub%C3%ADn-b48019121/' },
+  { name: 'GitHub', src: 'github', url: `${process.env.NEXT_PUBLIC_GITHUB}` },
+  { name: 'LinkedIn', src: 'linkedin', url: `${process.env.NEXT_PUBLIC_LINKEDIN}` },
 ];
 
 const Footer = (): React.ReactElement => (
