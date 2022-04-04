@@ -1,9 +1,9 @@
 name: Next.js Pipelines
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  test-lint:
+  lint:
     name: lint
     runs-on: ubuntu-latest
 
@@ -46,7 +46,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        
+
       - name: Install dependencies
         run: | 
           echo "Running Installing Dependecies ... "
