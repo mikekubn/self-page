@@ -22,7 +22,7 @@ jobs:
     name: build
     runs-on: ubuntu-laatest
     steps:
-      -name: Clone Repository
+      - name: Clone Repository
         uses: actions/checkout@v2
       - name: Install Dependencies
         run: | 
