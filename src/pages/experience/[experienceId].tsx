@@ -28,7 +28,7 @@ const JobDescriptionPage = ({ experienceId }: ITaskId): React.ReactElement | nul
   const { dispatch } = useNotificationProvider();
   const { matches: isDesktop } = useMediaQueries({
     screen: 'screen',
-    width: '(min-width: 800px)',
+    width: '(min-width: 700px)',
   });
 
   const copy = async () => {
