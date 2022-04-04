@@ -37,21 +37,3 @@ jobs:
       - name: Run test
         run: |
           echo "Running tests ... "
-
-  build:
-    name: build
-    runs-on: ubuntu-laatest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: | 
-          echo "Running installing dependecies ... "
-          npm install
-
-      - name: Run build
-        run: |
-          echo "Build app ... "
-          npm run build
